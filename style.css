@@ -1,3 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 5rem;
+}
+
+.player-panel {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 399px;
+    font-size: 32px;
+    margin-top: 5vh;
+}
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 150px;
+}
+
+.player img {
+    height: 7rem;
+    width: 7rem;
+}
+
+.inaktive_player {
+    opacity: 0.5;
+}
+
 tr {
     width: 399px;
 }
@@ -15,8 +51,8 @@ td:hover {
 
 table {
     border-collapse: collapse;
-  }
-  
+}
+
 table td {
     border: 5px solid black;
 }
@@ -24,7 +60,7 @@ table td {
 table tr:first-child td {
     border-top: 0;
 }
- 
+
 table tr td:first-child {
     border-left: 0;
 }
@@ -51,4 +87,74 @@ table img {
 
 .disabled {
     pointer-events: none;
+}
+
+.horizontal-line {
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    transform: scaleX(0.0);
+    transition: transform 225ms ease-in-out;
+}
+
+.vertical-line {
+    width: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transition: transform 225ms ease-in-out;
+    transform: scaleY(0.0);
+}
+
+.diagonal {
+    width: 10px;
+    left: 48.5%;
+    background-color: rgba(0, 0, 0, 0.8);
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    transition: transform 225ms ease-in-out;
+}
+
+.game-over {
+    position: absolute;
+    right: 0;
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 100vw;
+    object-fit: cover;
+    z-index: 2;
+    animation: zoomIn 400ms ease-in-out;
+}
+
+.restart-button{
+    z-index: 3;
+    height: 5%;
+    width: 15%;
+    border: 1px rgba(0, 0, 0, 1);
+    border-radius: 10px;
+    box-shadow:inset 0px 1px 0px 0px #cf866c;
+    background-color:#d0451b;
+
+    font-size: large;
+    position: absolute;
+    top: 39vh;
+    cursor: pointer;
+}
+
+.restart-button:hover {
+    background-color: #b4310a;;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
 }
